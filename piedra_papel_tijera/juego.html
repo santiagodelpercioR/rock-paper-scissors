@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rockpaperscissors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="">About</a></li>
+    </ul>
+    <h1>Piedra papel o tijera</h1>
+    <img id="jugadorSeleccionadoImg1" src="" alt="Jugador seleccionado" class="jugador-seleccionado">
+    <div>
+        <button onclick="jugar('piedra')"><img src="piedra.png" id="piedra" alt="piedra"></button>
+        <button onclick="jugar('papel')"><img src="papel.png" id="papel" alt="papel"></button>
+        <button onclick="jugar('tijera')"><img src="tijera.png" id="tijera" alt="tijera"></button>
+    </div>
+    <div class="seccionUsuario">
+        <h2>USUARIO</h2>
+        <p id="mensajeUsuario"></p>
+    </div>
+    <div class="seccionCpu">
+        <h2>CPU</h2>
+        <p id="mensajeCpu"></p>
+    </div>
+    <div class="seccionGanador">
+        <h2>GANADOR</h2>
+        <p id="mensajeGanador"></p>
+    </div>
+    <div class="ring">
+        <img id="jugadorSeleccionadoImg2" src="" alt="Jugador seleccionado" class="jugador-seleccionado">
+        <img id="jugadaJugador" src="" alt="Jugada jugador" class="jugada-jugador">
+        <img id="jugadaCpuImg" src="" alt="Jugada jugador2" >
+        <img src="sakura.png" width="100px">
+    </div>
+    <div>
+        <p>Puntaje usuario</p>
+        <p id="puntaje"></p>
+    </div>
+    <div>
+        <p>Puntaje cpu</p>
+        <p id="puntajeCpu"></p>
+    </div>
+    <div></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Verifica si hay una selección de jugador almacenada en sessionStorage
+        const jugadorSeleccionado = sessionStorage.getItem('jugadorSeleccionado');
+        if (jugadorSeleccionado) {
+            // Establece la fuente de la primera imagen del jugador seleccionado
+            const jugadorSeleccionadoImg1 = document.getElementById('jugadorSeleccionadoImg1');
+            jugadorSeleccionadoImg1.src = `${jugadorSeleccionado}.png`;
+
+            // Establece la fuente de la segunda imagen del jugador seleccionado
+            const jugadorSeleccionadoImg2 = document.getElementById('jugadorSeleccionadoImg2');
+            jugadorSeleccionadoImg2.src = `${jugadorSeleccionado}.png`;
+        }
+    </script>
+</body>
+
+</html>
