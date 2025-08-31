@@ -17,17 +17,19 @@ function getHumanChoice() {
   return opcion.toLowerCase();
 }
 
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice == computerChoice) console.log("Draw");
-  else if (
+function playRound(humanChoice, computerChoice, humanScore, computerScore) {
+  console.log(`Your choice: ${humanChoice}. CPU choice : ${computerChoice}`);
+  if (humanChoice == computerChoice) {
+    console.log("Draw");
+  } else if (
     (humanChoice == "rock" && computerChoice == "scissors") ||
     (humanChoice == "scissors" && computerChoice == "paper") ||
     (humanChoice == "paper" && computerChoice == "rock")
   ) {
-    console.log("You won");
+    console.log("You won this round!");
     humanScore++;
   } else {
-    console.log("Computer won");
+    console.log("You lose this round!");
     computerScore++;
   }
 }
@@ -36,13 +38,17 @@ function playGame() {
   let humanScore = 0;
   let computerScore = 0;
   for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice(), humanScore, computerScore);
+    console.log(`Your Score = ${humanScore}`);
+    console.log(`CPU Score = ${computerScore}`);
   }
   if (humanScore > computerScore) {
-    console.log("Gano el humano");
+    console.log("You won the game!");
   } else if (computerScore < humanScore) {
-    console.log("gano la cpu");
+    console.log("You lose the game!");
   }
+  console.log(`Your final score = ${humanScore}`);
+  console.log(`CPU final score = ${computerScore}`);
 }
 
 playGame();
