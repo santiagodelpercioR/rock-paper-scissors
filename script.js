@@ -17,7 +17,7 @@ function getHumanChoice() {
   return opcion.toLowerCase();
 }
 
-function playRound(humanChoice, computerChoice, humanScore, computerScore) {
+function playRound(humanChoice, computerChoice) {
   console.log(`Your choice: ${humanChoice}. CPU choice : ${computerChoice}`);
   if (humanChoice == computerChoice) {
     console.log("Draw");
@@ -35,10 +35,8 @@ function playRound(humanChoice, computerChoice, humanScore, computerScore) {
 }
 
 function playGame() {
-  let humanScore = 0;
-  let computerScore = 0;
   for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice(), humanScore, computerScore);
+    playRound(getHumanChoice(), getComputerChoice());
     console.log(`Your Score = ${humanScore}`);
     console.log(`CPU Score = ${computerScore}`);
   }
@@ -51,4 +49,6 @@ function playGame() {
   console.log(`CPU final score = ${computerScore}`);
 }
 
+let humanScore = 0;
+let computerScore = 0;
 playGame();
